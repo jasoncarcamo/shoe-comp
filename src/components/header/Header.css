@@ -1,0 +1,52 @@
+header{
+    width: 100%;
+    margin: 0;
+    border: 1px solid black;
+}
+
+#header-nav{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 100%;
+    border: 1px solid black;
+}
+
+#header-nav li{
+    list-style: none;
+}
+
+#header-nav li *{
+    text-decoration: none;
+}
+
+.logging-container{
+    display: flex;
+    width: 10em;
+    justify-content: space-between;
+    margin-left: auto;
+    text-align: right;
+    border: 1px solid black;
+}
+
+.logging-link{
+    border: 1px solid black;
+}
+
+#header-nav > h2{
+    width: 50%;
+    text-align: center;
+    border: 1px solid black;
+    margin: 0 auto .5em auto;
+}
+
+#nav-links{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    width: 50%;
+    text-align: center;
+    margin: 0 auto;
+    padding: 0;
+    border: 1px solid black;
+}
