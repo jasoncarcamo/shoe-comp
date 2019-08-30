@@ -1,0 +1,59 @@
+#reg-section{
+    margin: 3em auto;
+}
+
+#reg-form{
+    width: 85%;
+    margin: 0 auto;
+}
+
+#reg-form > fieldset{
+    display: flex;
+    margin: 0 auto;
+    width: 13em;
+    flex-direction: column;
+}
+
+
+#reg-form > fieldset > label{
+    display: block;
+    width: 11em;
+    font-size: 1em;
+    margin: .5em auto;
+}
+
+#reg-form > fieldset > input{
+    display: block;
+    height: 2em;
+    margin: .5em auto;
+    font-size: 1em;
+    border: 1px solid black;
+}
+
+.reg_pass_error{
+    display: block;
+    width: 90%;
+    margin: 0 auto;
+    text-align: center;
+}
+
+#reg_passMatch{
+    display: block;
+    margin: 1em auto;
+    text-align: center;
+}
+
+
+#reg-submit{
+    display: block;
+    margin: 1.5em auto 0 auto;
+    width: 6em;
+    height: 3em;
+    font-size: 1em;
+}
+
+@media screen and (min-width: 770px){
+    #reg-form > fieldset{
+        width: 18em;
+    }
+}

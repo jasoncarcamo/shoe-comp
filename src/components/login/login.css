@@ -1,0 +1,53 @@
+#login-section{
+    margin: 3em auto;
+}
+
+#login-form{
+    width: 85%;
+    margin: 0 auto;
+}
+
+#login-form > fieldset{
+    display: flex;
+    margin: 0 auto;
+    width: 13em;
+    flex-direction: column;
+}
+
+#login-form > fieldset > label{
+    display: block;
+    width: 11em;
+    font-size: 1em;
+    margin: .5em auto;
+}
+
+#login-form > fieldset > input{
+    display: block;
+    height: 2em;
+    margin: .5em auto;
+    font-size: 1em;
+    border: 1px solid black;
+}
+
+
+#login-submit{
+    display: block;
+    margin: 1.5em auto 0 auto;
+    width: 6em;
+    height: 3em;
+    font-size: 1em;
+}
+
+#login-error{
+    display: block;
+    text-align: center;
+    width: 8em;
+    margin: 1em auto;
+    border: 1px solid black;
+}
+
+@media screen and (min-width: 770px){
+    #login-form > fieldset{
+        width: 18em;
+    }
+}
