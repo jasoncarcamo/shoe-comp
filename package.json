@@ -8,6 +8,7 @@
     "@fortawesome/react-fontawesome": "^0.1.4",
     "a-color-picker": "^1.1.8",
     "dotenv": "^8.1.0",
+    "query-string": "^6.8.2",
     "react": "^16.9.0",
     "react-dom": "^16.9.0",
     "react-router-dom": "^5.0.1",

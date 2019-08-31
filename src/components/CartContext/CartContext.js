@@ -33,7 +33,7 @@ export class CartProvider extends React.Component{
                     return Promise.reject(e)}) : res.json();
             })
             .then( data => {
-                console.log(data)
+
                 this.formatData(data.data.items);
                 if(data){
                     this.setState({ hasInstance: true})
@@ -140,7 +140,6 @@ export class CartProvider extends React.Component{
     }
 
     clearCheckout = () => {
-        console.log("Clicked")
         fetch("http://localhost:8000/user/order", {
             method: "DELETE",
             headers: {
@@ -156,15 +155,32 @@ export class CartProvider extends React.Component{
             this.setState({ items: []});
     }
 
+    getItem = (index)=>{
+        const item = this.state.items[index];
+        
+        return item;
+    }
+
+    editItem = (index, item)=>{
+        const items = this.state.items;
+        
+        items[index] = item;
+
+        this.setState({items})
+    }
+
     render(){
-        console.log(this.state.items)
+
         const value = {
             items: this.state.items,
             addItem: this.addItem,
             removeItem: this.removeItem,
             clearCheckout: this.clearCheckout,
+            getItem: this.getItem,
+            editItem: this.editItem,
             error: ""
         };
+
         return (
             <CartContext.Provider value={value}>
                 {this.props.children}

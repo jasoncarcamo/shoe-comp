@@ -54,9 +54,11 @@ header{
     top: .2em;
     padding: 0 1em;
     margin: 0 auto;
+    font-size: 1.8em;
 }
 
 #cart-icon{
+    font-size: 1.6em;
     padding: 0 1em;
 }
 

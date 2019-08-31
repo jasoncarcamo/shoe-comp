@@ -62,7 +62,7 @@ export default class Header extends React.Component{
     }
 
     render(){
-        console.log(this.state.length)
+        
         return (
             <header>
                 
