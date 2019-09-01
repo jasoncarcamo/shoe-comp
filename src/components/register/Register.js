@@ -1,6 +1,7 @@
 import React from "react";
 import {Link} from "react-router-dom";
 import "./register.css";
+import UserService from "../../services/UserService";
 
 export default class Register extends React.Component{
     constructor(props){
@@ -64,20 +65,10 @@ export default class Register extends React.Component{
     handleSubmit = (e) =>{
         e.preventDefault();
 
-        fetch("http://localhost:8000/api/register", {
-            method: "POST",
-            headers: {
-                'content-type': "application/json"
-            },
-            body: JSON.stringify({first_name: this.state.first_name,
+        UserService.register({first_name: this.state.first_name,
             last_name: this.state.last_name,
             email: this.state.email,
             password: this.state.password})
-        })
-            .then( res =>{
-                return !res.ok ? res.json().then(e => {
-                    return Promise.reject(e)}) : res.json()
-            })
             .then( resData => {
                 this.props.history.push("/login");
             })

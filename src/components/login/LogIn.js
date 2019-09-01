@@ -2,6 +2,7 @@ import React from "react";
 import {Link} from "react-router-dom";
 import "./login.css";
 import TokenService from "../../services/TokenService";
+import UserService from "../../services/UserService";
 
 export default class Login extends React.Component{
     constructor(props){
@@ -25,17 +26,7 @@ export default class Login extends React.Component{
     handleSubmit = (e)=>{
         e.preventDefault();
 
-        return fetch("http://localhost:8000/api/login", {
-            method: "POST",
-            headers: {
-                'content-type': "application/json"
-            },
-            body: JSON.stringify({email: this.state.email, password: this.state.password})
-        })
-            .then( res => {
-                return !res.ok ? res.json().then(e => {
-                    return Promise.reject(e)}) : res.json()
-            })
+        UserService.login({email: this.state.email, password: this.state.password})
             .then(resData => {
                 if(!resData.error){
                     TokenService.saveAuthToken(resData.authToken);

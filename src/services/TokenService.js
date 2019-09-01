@@ -13,4 +13,4 @@ const TokenService = {
     },
 }
 
-module.exports = TokenService;
+export default TokenService;

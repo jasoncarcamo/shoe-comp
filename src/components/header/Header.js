@@ -34,7 +34,7 @@ export default class Header extends React.Component{
                 <div id="cart-container">
                     <span id="cart-amount">{this.amountOfItems()}</span>
 
-                    <FontAwesomeIcon id="cart-icon" icon = {faShoppingCart} onClick={this.toggleCheckout}></FontAwesomeIcon>
+                    <FontAwesomeIcon className="fas-10x" id="cart-icon" icon={faShoppingCart} onClick={this.toggleCheckout}></FontAwesomeIcon>
 
                     <div id="checkout-container">
                         <div></div>
@@ -62,7 +62,7 @@ export default class Header extends React.Component{
     }
 
     render(){
-        
+
         return (
             <header>
                 

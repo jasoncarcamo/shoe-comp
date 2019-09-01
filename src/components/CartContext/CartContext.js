@@ -1,5 +1,6 @@
 import React from "react";
 import TokenService from "../../services/TokenService";
+import CartServices from "./CartServices";
 
 const CartContext = React.createContext({
     items: [],
@@ -22,16 +23,7 @@ export class CartProvider extends React.Component{
     }
 
     componentDidMount(){
-        fetch("http://localhost:8000/user/order", {
-            headers: {
-                'content-type': "application/json",
-                'authorization': `bearer ${TokenService.getAuthToken()}`
-            }
-        })
-            .then( res =>{
-                return !res.ok ? res.json().then(e => {
-                    return Promise.reject(e)}) : res.json();
-            })
+        CartServices.getCart()
             .then( data => {
 
                 this.formatData(data.data.items);
@@ -59,22 +51,11 @@ export class CartProvider extends React.Component{
             methodType = "PATCH"
         };
 
-        fetch("http://localhost:8000/user/order", {
-            method: methodType,
-            headers: {
-                'content-type': "application/json",
-                'authorization': `bearer ${TokenService.getAuthToken()}`
-            },
-            body: JSON.stringify({items})
-        })
-            .then( res => {
-                return !res.ok ? res.json().then(e => {
-                    return Promise.reject(e)}) : res.json()
-            })
+        CartServices.cartFunctions(methodType, {items})
             .then( data => {
                 this.formatData(data.items);
             })
-            .catch( error => console.log(error));
+            .catch( error => this.setState({ error: error}));
 
     }
 
@@ -119,15 +100,7 @@ export class CartProvider extends React.Component{
         const orders = this.state.items;
         orders.splice(index, 1);
 
-        fetch("http://localhost:8000/user/order", {
-            method: "PATCH",
-            headers: {
-                'content-type': "application/json",
-                'authorization': `bearer ${TokenService.getAuthToken()}`
-            },
-            body: JSON.stringify({ items: orders})
-        })
-        .then( res => res.json())
+        CartServices.cartFunctions("PATCH", {items: orders})        
         .then( data => {
             
             if(data.items === "{}"){
@@ -135,12 +108,13 @@ export class CartProvider extends React.Component{
             };
 
             this.setState({ items: orders});
-        });
+        })
+        .catch(error => this.setState({ error: error}))
 
     }
 
     clearCheckout = () => {
-        fetch("http://localhost:8000/user/order", {
+        fetch("http://localhost:8000/user/checkout", {
             method: "DELETE",
             headers: {
                 'content-type': "application/json",

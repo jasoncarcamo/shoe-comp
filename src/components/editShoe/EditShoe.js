@@ -1,8 +1,6 @@
 import React from 'react';
 import queryString from "query-string";
 import CartContext from "../CartContext/CartContext";
-import {Link} from "react-router-dom";
-import TokenService from "../../services/TokenService";
 import "./editShoe.css";
 const ColorPicker = require("a-color-picker");
 
@@ -34,7 +32,7 @@ export default class EditShoe extends React.Component{
     }
     
     setColors = ()=>{
-        console.log(this.state.item.top)
+        
         document.getElementsByClassName("top-color")[0].style.backgroundColor = this.state.top;
         document.getElementsByClassName("middle-color")[0].style.backgroundColor = this.state.middle;
         document.getElementsByClassName("bottom-color")[0].style.backgroundColor = this.state.bottom;
@@ -45,7 +43,7 @@ export default class EditShoe extends React.Component{
         Array.from(document.getElementsByClassName("layer")).forEach( layer => {
             
             layer.addEventListener("mouseover", ()=>{
-                layer.style.opacity = .7;
+                layer.style.opacity = .8;
             });
             layer.addEventListener("mouseout", ()=>{
                 layer.style.opacity = 1;
@@ -160,6 +158,10 @@ export default class EditShoe extends React.Component{
         this.props.history.push("/checkout");
     }
 
+    handleCancelEdit = ()=>{
+        this.props.history.push("/checkout")
+    }
+
 
     render(){
         console.log(this.state.item)
@@ -235,7 +237,8 @@ export default class EditShoe extends React.Component{
                     <div className="bottom-color color-layer" style={{backgroundColor: this.state.bottom}} onClick={this.layerColor}></div>
                 </div>
                 <button id="random-color" type="button">Randomize</button>
-                <button id="add-checkout" type="button" onClick={this.handleEditItem}>Add to checkout</button>
+                <button id="add-checkout" type="button" onClick={this.handleEditItem}>Edit item</button>
+                <button id="cancel-edit-button" type="button" onClick={this.handleCancelEdit}>Cancel</button>
                 {this.state.error ? this.state.error : ""}
             </section>
         )

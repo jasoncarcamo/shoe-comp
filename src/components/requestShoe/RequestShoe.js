@@ -53,7 +53,7 @@ export default class RequestShoe extends React.Component{
         Array.from(document.getElementsByClassName("layer")).forEach( layer => {
             
             layer.addEventListener("mouseover", ()=>{
-                layer.style.opacity = .7;
+                layer.style.opacity = .8;
             });
             layer.addEventListener("mouseout", ()=>{
                 layer.style.opacity = 1;

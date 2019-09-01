@@ -87,6 +87,7 @@ select{
     display: block;
     width: 6em;
     height: 3em;
+    font-size: 1em;
     margin: 2em auto 0 auto;
 }
 
@@ -94,6 +95,7 @@ select{
     display: block;
     width: 6em;
     height: 3em;
+    font-size: 1em;
     margin: 1em auto;
 }
 
