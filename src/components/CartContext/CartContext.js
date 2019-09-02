@@ -1,12 +1,14 @@
 import React from "react";
-import TokenService from "../../services/TokenService";
 import CartServices from "./CartServices";
 
 const CartContext = React.createContext({
     items: [],
     addItem: ()=>{},
     removeItem: ()=>{},
-    cancelItems: ()=>{},
+    clearCheckout: ()=>{},
+    getItem: ()=>{},
+    editItem: ()=>{},
+    placeOrder: ()=>{},
     error: ""
 });
 
@@ -32,30 +34,6 @@ export class CartProvider extends React.Component{
                 }
             })
             .catch(error => this.setState({ error}));
-
-    }
-
-    addItem = (item)=>{
-        let items = this.state.items;
-        let methodType;
-
-        if(items.length === 0){
-            items[0] = item;
-            methodType = "POST";
-        } else{
-            items.push(item);
-            methodType = "PATCH"
-        };
-        
-        if(this.state.hasInstance){
-            methodType = "PATCH"
-        };
-
-        CartServices.cartFunctions(methodType, {items})
-            .then( data => {
-                this.formatData(data.items);
-            })
-            .catch( error => this.setState({ error: error}));
 
     }
 
@@ -96,6 +74,30 @@ export class CartProvider extends React.Component{
 
     }
 
+    addItem = (item)=>{
+        let items = this.state.items;
+        let methodType;
+
+        if(items.length === 0){
+            items[0] = item;
+            methodType = "POST";
+        } else{
+            items.push(item);
+            methodType = "PATCH"
+        };
+        
+        if(this.state.hasInstance){
+            methodType = "PATCH"
+        };
+
+        CartServices.cartFunctions(methodType, {items})
+            .then( data => {
+                this.formatData(data.items);
+            })
+            .catch( error => this.setState({ error: error}));
+
+    }
+
     removeItem = (index) => {
         const orders = this.state.items;
         orders.splice(index, 1);
@@ -114,14 +116,8 @@ export class CartProvider extends React.Component{
     }
 
     clearCheckout = () => {
-        fetch("http://localhost:8000/user/checkout", {
-            method: "DELETE",
-            headers: {
-                'content-type': "application/json",
-                'authorization': `bearer ${TokenService.getAuthToken()}`
-            }
-        })
-            .then( res => res.json())
+        
+        CartServices.deleteCart()
             .then( data => {
                 this.setState({ hasInstance: null});
             });
@@ -143,6 +139,14 @@ export class CartProvider extends React.Component{
         this.setState({items})
     }
 
+    placeOrder = ()=>{
+        CartServices.placeOrder(this.state.items)
+            .then( data => {
+                console.log("Order placed.")
+            })
+            .catch( error => this.setState({error: error.error}));
+    }
+
     render(){
 
         const value = {
@@ -152,6 +156,7 @@ export class CartProvider extends React.Component{
             clearCheckout: this.clearCheckout,
             getItem: this.getItem,
             editItem: this.editItem,
+            placeOrder: this.placeOrder,
             error: ""
         };
 

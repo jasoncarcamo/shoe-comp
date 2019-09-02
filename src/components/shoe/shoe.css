@@ -1,7 +1,8 @@
-#checkout-SVG{
+.checkout-SVG{
     display: block;
     width: 90%;
     height: 6em;
-    margin: .5em auto 2em auto;
+    margin: 0 auto;
     padding: 0;
+    background-color: whitesmoke;
 }

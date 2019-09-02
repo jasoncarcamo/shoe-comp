@@ -14,6 +14,20 @@ const CartServices = {
                     return Promise.reject(e)}) : res.json()
             })
     },
+    placeOrder(items){
+        return fetch("http://localhost:8000/user/order", {
+            method: "POST",
+            headers: {
+                'content-type': "application/json",
+                'authorization': `bearer ${TokenService.getAuthToken()}`
+            },
+            body: JSON.stringify({items})
+        })
+            .then( res => {
+                return !res.ok ? res.json().then(e => {
+                    return Promise.reject(e)}) : res.json()
+            })
+    }, 
     cartFunctions(method, items){
 
         return fetch("http://localhost:8000/user/checkout", {
@@ -30,17 +44,17 @@ const CartServices = {
             })
     },
     deleteCart(){
-        return fetch("http://localhost/user/checkout", {
+        return fetch("http://localhost:8000/user/checkout", {
             method: "DELETE",
             headers: {
                 'content-type': "application/json",
                 'authorization': `bearer ${TokenService.getAuthToken()}`
             }
-                .then( res => {
-                    return !res.ok ? res.json().then(e => {
-                        return Promise.reject(e)}) : res.json()
-                })
         })
+            .then( res => {
+                return !res.ok ? res.json().then(e => {
+                    return Promise.reject(e)}) : res.json()
+            })
     }
 };
 

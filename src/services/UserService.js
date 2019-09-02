@@ -1,6 +1,7 @@
 import TokenService from "./TokenService";
 
 const UserService = {
+
     register(form){
         
         return fetch("http://localhost:8000/api/register", {
@@ -40,8 +41,21 @@ const UserService = {
                 return !res.ok ? res.json().then(e => {
                     return Promise.reject(e)}) : res.json()
             })
+    },
+    getOrders(){
+        return fetch("http://localhost:8000/user/order", {
+            headers: {
+                'content-type': "application/json",
+                'authorization': `bearer ${TokenService.getAuthToken()}`
+            }
+        })
+            .then( res => {
+                return !res.ok ? res.json().then(e => {
+                    return Promise.reject(e)}) : res.json()
+            })
     }
 };
+
 
 
 export default UserService;

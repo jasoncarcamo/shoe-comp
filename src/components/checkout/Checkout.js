@@ -40,19 +40,40 @@ export default class Checkout extends React.Component{
             <li key={index} className="checkout-item">
 
                 <h3>Order: {index + 1}</h3>
-                <Shoe top={order.top} middle={order.middle} bottom={order.bottom}></Shoe>
-                <p>Size: {order.size}</p>
-                <p>Quatity: {order.quantity}</p>
-                <div className="checkout-button-container">
-                    <button type="button" onClick={()=>{ this.props.history.push(`/editshoe?item=${index + 1}`)}}>Edit</button>
-                    <button type="button" onClick={removeItem}>Remove</button>
+
+                <div className="checkout-items">
+                    <div className="checkout-features">
+                        <button className="checkout-remove-item" type="button" onClick={removeItem}><span>-</span></button>
+
+                        <Shoe className="checkout-SVG" top={order.top} middle={order.middle} bottom={order.bottom}></Shoe>
+
+                        <button type="button" onClick={()=>{ this.props.history.push(`/editshoe?item=${index + 1}`)}}>Edit</button>
+                    </div>
+                    
+                    <div className="checkout-item-info">
+                        <p>Size: {order.size}</p>
+                        <p>Quatity: {order.quantity}</p>
+                    </div>
                 </div>
 
             </li>)});
     }
 
+    renderOrderButtons = ()=>{
+        return (
+            <>
+                <button id="checkout-place-order" type="buton" onClick={this.handlePlaceOrder}>Place order</button>
+                <button id="checkout-cancel-order" type="button" onClick={this.handleCancelOrder}>Cancel order</button>
+            </>
+        )
+    }
+
     handleCancelOrder = ()=>{
         this.context.clearCheckout();
+    }
+
+    handlePlaceOrder = ()=>{
+        this.context.placeOrder();
     }
 
     render(){
@@ -61,7 +82,7 @@ export default class Checkout extends React.Component{
             <section id="checkout-section">
                 <ul>
                     {this.renderEditSelection()}
-                    {this.context.items.length !== 0 ? <button id="checkout-cancel-order" type="button" onClick={this.handleCancelOrder}>Cancel order</button> : ""}
+                    {this.context.items.length !== 0 ? this.renderOrderButtons() : ""}
                 </ul>
             </section>
         )
