@@ -1,0 +1,56 @@
+#profile-section{
+    margin: 5em auto 0 auto;
+}
+
+#profile-section h1{
+    text-align: center;
+    font-size: 1.4em;
+    margin-bottom: 3em;
+}
+
+#profile-no-items{
+    display: block;
+    font-size: 1em;
+    text-align: center;
+}
+
+.profile-order-container{
+    width: 80%;
+    margin: 1em auto;
+    padding: 0;
+}
+
+.profile-order-header{
+    border: 1px solid black;
+    height: 3.2em;
+    margin: 1em auto -.7em auto;
+    padding-top: .9em;
+    padding-left: 2em;
+}
+
+.profile-orders{
+    display: none;
+    top: 1em;
+    width: 90%;
+    list-style: none;
+    margin: 1em auto;
+    border: 1px solid black;
+}
+.profile-orders h4{
+    width: 5em;
+    text-align: right;
+}
+
+.profile-orders div{
+    display: flex;
+    justify-content: space-evenly;
+    width: 50%;
+    margin: 0 auto;
+}
+
+
+@media screen and (max-width: 770px){
+    .profile-orders div{
+        width: auto;
+    }
+}

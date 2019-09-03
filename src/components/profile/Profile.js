@@ -1,5 +1,7 @@
 import React from "react";
 import UserService from "../../services/UserService";
+import Shoe from "../shoe/Shoe";
+import "./profile.css";
 
 export default class Profile extends React.Component{
     constructor(props){
@@ -13,7 +15,7 @@ export default class Profile extends React.Component{
         }
     }
 
-    componentWillMount(){
+    UNSAFE_componentWillMount(){
         this.setState({isMounted: true});
     }
 
@@ -47,9 +49,6 @@ export default class Profile extends React.Component{
                 formatData.shift();
                 formatData.pop();
             };
-
-            console.log(formatData)
-
 
             for(let i = 0; i < formatData.length; i++){
                 if(formatData[i] === ("\\")){
@@ -89,28 +88,64 @@ export default class Profile extends React.Component{
 
         return orders.map( (order, index) => {
             let li = [];
+            let ul;
 
             for( let i = 0; i < order.items.length; i++){
-                console.log(order.items[i])
+                
                 li[i] = (
-                    <li key={index+"-"+ i}>
-                        {order.items[i].top}
+                    <li key={index+"-"+ i} className="profile-orders">
+
+                        <h4>Shoe: {i + 1}</h4>
+                        <Shoe top={order.items[i].top} middle={order.items[i].middle} bottom={order.items[i].bottom}></Shoe>
+
+                        <div>
+                            <p>Size: {order.items[i].size}</p>
+
+                            <p>Quantity: {order.items[i].quantity}</p>
+                        </div>
+
                     </li>
                 )
             };
+
+            ul = (
+                <ul key={index} className="profile-order-container">
+
+                    <h4 className="profile-order-header" onClick={this.toggleOrders}>Order: {index + 1}</h4>
+
+                    {li}
+                </ul>
+            )
             
-            return li;
+            return ul;
         })
     }
 
+    toggleOrders = (e)=>{
+        const orders = document.querySelectorAll(".profile-orders");
+        
+        for(let i = 0; i < orders.length; i++){
+
+            if(orders[i].parentNode === e.target.parentNode){
+                if(orders[i].style.display !== "block"){
+                    orders[i].style.display = "block";
+                } else{
+                    orders[i].style.display = "none";
+                }
+            } else{
+                orders[i].style.display = "none";
+            }
+        }
+    }
+
     render(){
-        console.log(this.state.orders)
+        
         return (
             <section id="profile-section">
                 <h1>Hello {this.state.first_name} {this.state.last_name}</h1>
-                <ul>
-                    {this.renderOrders()}
-                </ul>
+
+                
+                {this.renderOrders()}
             </section>
         )
     }

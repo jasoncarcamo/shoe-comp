@@ -5,7 +5,7 @@ import Header from '../header/Header';
 import Register from "../register/Register";
 import LogIn from "../login/LogIn";
 import Profile from "../profile/Profile";
-import RequestShoe from '../requestShoe/RequestShoe';
+import RequestShoe from '../profile/requestShoe/RequestShoe';
 import Checkout from "../checkout/Checkout";
 import EditShoe from "../editShoe/EditShoe";
 

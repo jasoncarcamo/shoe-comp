@@ -1,7 +1,7 @@
 import React from "react";
-import CartContext from "../CartContext/CartContext";
+import CartContext from "../../CartContext/CartContext";
 import "./checkout.css";
-import Shoe from "../shoe/Shoe";
+import Shoe from "../../shoe/Shoe";
 
 
 
@@ -19,7 +19,7 @@ export default class Checkout extends React.Component{
     static contextType = CartContext;
 
     componentDidMount(){
-
+        
     }
 
     renderEditSelection = ()=>{
@@ -43,7 +43,7 @@ export default class Checkout extends React.Component{
 
                 <div className="checkout-items">
                     <div className="checkout-features">
-                        <button className="checkout-remove-item" type="button" onClick={removeItem}><span>-</span></button>
+                        <button className="checkout-remove-item" type="button" onClick={removeItem}><span></span></button>
 
                         <Shoe className="checkout-SVG" top={order.top} middle={order.middle} bottom={order.bottom}></Shoe>
 
@@ -74,6 +74,7 @@ export default class Checkout extends React.Component{
 
     handlePlaceOrder = ()=>{
         this.context.placeOrder();
+        this.props.history.push("/user")
     }
 
     render(){

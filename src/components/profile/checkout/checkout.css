@@ -11,6 +11,7 @@
 
 .checkout-item{
     display: flex;
+    margin: 1em auto;
     flex-direction: column;
     padding: .3em;
     border: .1em solid black;
@@ -36,17 +37,10 @@
 
 .checkout-SVG{
     display: block;
-    width: 90%;
     height: 6em;
     margin: 0 auto;
     padding: 0;
     background-color: whitesmoke;
-}
-
-#no-items{
-    display: block;
-    text-align: center;
-    font-size: 1.1em;
 }
 
 #checkout-place-order{
@@ -82,14 +76,24 @@
     text-align: center;
 }
 
+#no-items{
+    display: block;
+    font-size: 1em !important;
+    margin: 0 auto;
+    width: 50%;
+    text-align: center;
+}
+
 
 
 @media screen and (max-width: 770px){
-    #checkout-section > ul{
-        width: 85%
+
+    .checkout-features{
+        padding: 0 5em;
     }
 
     .checkout-features  button{
-        margin: auto .3em;
+        display: block;
+        margin: auto 0;
     }
 }

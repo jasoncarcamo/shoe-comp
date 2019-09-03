@@ -40,10 +40,11 @@ export default class Login extends React.Component{
     handleSignUpLink = (state)=>{
         let errors = this.state.error.split(" ");
         let here;
+
         if(errors[errors.length - 1] === "here."){
             here = errors.pop();
             errors = errors.join(" ")
-            return <span id="login-error">{errors} <Link to="/register">{here}</Link></span>;
+            return <span id="login-error">{errors}<Link to="/register"> {here}</Link></span>;
         };
 
         return <span id="login-error">{state.error}</span>;

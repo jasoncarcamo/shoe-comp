@@ -1,5 +1,6 @@
 import React from "react";
 import CartServices from "./CartServices";
+import TokenService from "../../services/TokenService";
 
 const CartContext = React.createContext({
     items: [],
@@ -25,7 +26,8 @@ export class CartProvider extends React.Component{
     }
 
     componentDidMount(){
-        CartServices.getCart()
+        if(TokenService.hasAuthToken()){
+            CartServices.getCart()
             .then( data => {
 
                 this.formatData(data.data.items);
@@ -34,6 +36,7 @@ export class CartProvider extends React.Component{
                 }
             })
             .catch(error => this.setState({ error}));
+        };
 
     }
 
@@ -142,7 +145,7 @@ export class CartProvider extends React.Component{
     placeOrder = ()=>{
         CartServices.placeOrder(this.state.items)
             .then( data => {
-                console.log("Order placed.")
+                this.clearCheckout();
             })
             .catch( error => this.setState({error: error.error}));
     }

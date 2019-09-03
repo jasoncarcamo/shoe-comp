@@ -1,5 +1,5 @@
 import React from 'react';
-import {Link} from 'react-router-dom';
+import {Link, NavLink} from 'react-router-dom';
 import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
 import {faShoppingCart} from "@fortawesome/free-solid-svg-icons";
 import './Header.css';
@@ -79,10 +79,17 @@ export default class Header extends React.Component{
                     {TokenService.hasAuthToken() ? this.renderCart() : null}
 
                     <ul id="nav-links">
-                        <li><Link to="/">Home</Link></li>
-                        <li><Link to="/shop">Shop</Link></li>
-                        {TokenService.hasAuthToken() ? <li><Link to="/user">Profile</Link></li> : ''}
-                        <li><Link to="/about">About Us</Link></li>
+
+                        <li><NavLink exact to="/" activeStyle={{fontSize: "1.2em", fontWeight: 700}}>Home</NavLink></li>
+
+                        <li>
+                            <NavLink to="/shop" activeStyle={{fontSize: "1.2em", fontWeight: 700}}>Shop</NavLink>
+                        </li>
+
+                        {TokenService.hasAuthToken() ? <li>
+                            <NavLink to="/user" activeStyle={{fontSize: "1.2em", fontWeight: 700}}>Profile</NavLink>
+                        </li> : ''}
+                        <li><NavLink to="/about" activeStyle={{fontSize: "1.2em", fontWeight: 700}}>About Us</NavLink></li>
                     </ul>
                 </nav>
             </header>
