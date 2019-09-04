@@ -73,6 +73,11 @@
     font-size: 1em;
 }
 
+.checkout-item{
+    width: 80%;
+    margin: 2em auto;
+}
+
 .checkout-item-info{
     padding: 0;
 }

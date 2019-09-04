@@ -170,6 +170,8 @@ export default class RequestShoe extends React.Component{
             size: this.state.size,
             quantity: this.state.quantity
         });
+
+        this.resetState();
     }
 
     render(){

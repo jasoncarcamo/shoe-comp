@@ -20,11 +20,13 @@ export default class Profile extends React.Component{
     }
 
     componentDidMount(){
+
         if(this.state.isMounted){
             UserService.getUser()
                 .then( res => {
-                    this.setState(res)                
-                });
+                    this.setState(res);                
+                })
+                .catch( error => this.setState({ error: error.error}))
 
             UserService.getOrders()
                 .then( data => {
@@ -32,7 +34,7 @@ export default class Profile extends React.Component{
                 })
                 .catch(error => {
                     this.setState({ error: error.error})
-                })
+                });
         }
     }
 
@@ -136,8 +138,9 @@ export default class Profile extends React.Component{
                 orders[i].style.display = "none";
             }
         }
-    }
 
+        console.log(this.props);
+    }
     render(){
         
         return (

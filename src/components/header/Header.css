@@ -59,7 +59,7 @@ header{
 
 #cart-icon{
     font-size: 1.6em;
-    padding: 0 1em;
+    padding: 0;
 }
 
 #checkout-container{
@@ -80,9 +80,9 @@ header{
     position: relative;
     right: 1.2em;
     width: 7em;
-    height: 3em;
+    height: 2.5em;
+    padding-top: 1em;
     margin-top: -.5em;
-    padding-top: .7em;
     background-color: black;
     z-index: 2;
 }
@@ -91,14 +91,12 @@ header{
     display: block;
     width: 5em;
     height: 1.5em;
-    margin: 0 auto -1em auto;
+    margin: 0 auto 2em auto;
     font-size: 1em;
-    background-color: white;
-    padding: .5em 0;
-    border: .1em solid white;
-    color: black;
+    color: white;
     text-decoration: none;
     border-radius: 1em;
+    border: .1em solid white;
 }
 
 
@@ -111,4 +109,8 @@ header{
     text-align: center;
     margin: 0 auto;
     padding: 0;
+}
+
+#nav-links *{
+    color: black;
 }

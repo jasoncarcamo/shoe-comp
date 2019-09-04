@@ -10,11 +10,16 @@ export default class Header extends React.Component{
     constructor(props){
         super(props);
         this.state = {
-            items: []
+            items: [],
         }
     };
     
     componentDidMount(){
+        
+    }
+
+    componentWillUnmount(){
+        
     }
 
     static contextType = CartContext;
@@ -48,11 +53,13 @@ export default class Header extends React.Component{
 
     toggleCheckout = ()=>{
         const checkout = document.getElementById("checkout-container");
+        
+        console.log(checkout.style.display.length)
 
-        if(checkout.style.display === "block"){
-            checkout.style.display = "none";
-        } else{
+        if(checkout.style.display !== "block"){
             checkout.style.display = "block";
+        } else{
+            checkout.style.display = "none";
         }
     }
 

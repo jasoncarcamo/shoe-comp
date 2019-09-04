@@ -2,6 +2,7 @@ import React from 'react';
 import {Route} from 'react-router-dom';
 import './App.css';
 import Header from '../header/Header';
+import Home from "../home/Home";
 import Register from "../register/Register";
 import LogIn from "../login/LogIn";
 import Profile from "../profile/Profile";

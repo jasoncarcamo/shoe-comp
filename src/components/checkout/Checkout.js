@@ -74,6 +74,7 @@ export default class Checkout extends React.Component{
 
     handlePlaceOrder = ()=>{
         this.context.placeOrder();
+        this.props.history.push('/user');
     }
 
     render(){
