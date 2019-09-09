@@ -26,9 +26,10 @@ export default class EditShoe extends React.Component{
     }
 
     getItem = ()=>{
+
         const itemIndex = queryString.parse(this.props.location.search);
         
-        this.setState(this.context.getItem(Number(itemIndex.item) - 1))
+        this.setState(this.context.getItem(Number(itemIndex.item) - 1));
     }
     
     setColors = ()=>{

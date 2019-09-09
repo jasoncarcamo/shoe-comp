@@ -53,8 +53,6 @@ export default class Header extends React.Component{
 
     toggleCheckout = ()=>{
         const checkout = document.getElementById("checkout-container");
-        
-        console.log(checkout.style.display.length)
 
         if(checkout.style.display !== "block"){
             checkout.style.display = "block";

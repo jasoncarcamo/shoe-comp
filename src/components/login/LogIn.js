@@ -68,7 +68,7 @@ export default class Login extends React.Component{
                     </label>
                     <input type="password" id="login-password" onChange={this.handlePassword}></input>     
                     
-                    {this.state.error ? this.handleSignUpLink(this.state) : ""}    
+                    {this.state.error ? this.handleSignUpLink(this.state) : (<span id="login-error">Not registered? Sign up <Link to="/register">here</Link></span>)}    
 
                     <button type="submit" id="login-submit">Log In</button>
                     </fieldset>
