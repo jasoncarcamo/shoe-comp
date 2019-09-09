@@ -1,6 +1,8 @@
 import React from "react";
 import "./landingpage.css";
 import {Link} from "react-router-dom";
+import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
+import {faShoppingCart, faEyeDropper, faWifi} from "@fortawesome/free-solid-svg-icons";
 
 
 export default class Home extends React.Component{
@@ -182,16 +184,19 @@ export default class Home extends React.Component{
                 <section id="features-section">
                     <ul id="features-container">
                         <li>
+                            <FontAwesomeIcon id="features-wifi-icon" icon={faWifi}></FontAwesomeIcon>
                             <h2>Order Online</h2>
                             <p>Select your size and easliy add your new shoe to your cart</p>
                         </li>
                         
                         <li>
+                            <FontAwesomeIcon id="features-color-icon" icon={faEyeDropper}></FontAwesomeIcon>
                             <h2>Choose your color scheme</h2>
                             <p>Choose from thousands of color combinations. The only limit is your imagination</p>
                         </li>
 
                         <li>
+                            <FontAwesomeIcon id="features-cart-icon" icon={faShoppingCart} ></FontAwesomeIcon>
                             <h2>Quick checkout</h2>
                             <p>Your cart will always contain your items unless removed by you</p>
                         </li>

@@ -70,15 +70,34 @@
     height: 20em;
 }
 
+#features-cart-icon{
+    display: block;
+    margin: 0 auto;
+    font-size: 5em;
+}
+
+
+#features-color-icon{
+    display: block;
+    margin: 0 auto;
+    font-size: 5em;
+}
+
+#features-wifi-icon{
+    display: block;
+    margin: 0 auto;
+    font-size: 5em;
+}
+
 #features-container li h2{
     margin: 0;
-    height: 5em;
-    padding-top: 1em;
+    padding: 0;
+    
 }
 
 #features-container li p{
     width: 70%;
-    margin: auto;
+    margin: 0 auto;
     font-size: 1.1em;
 }
 
