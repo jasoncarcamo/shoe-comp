@@ -1,0 +1,26 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<Profile/> Creates a snapshot 1`] = `
+<section
+  id="profile-section"
+>
+  <h1>
+    Hello 
+    
+     
+    
+  </h1>
+  <p
+    id="profile-no-items"
+  >
+    No items yet. Your first item will appear after you make you first 
+    <a
+      href="/shop"
+      onClick={[Function]}
+    >
+      purchase
+    </a>
+    .
+  </p>
+</section>
+`;

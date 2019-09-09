@@ -55,7 +55,6 @@ export default class Checkout extends React.Component{
                         <p>Quatity: {order.quantity}</p>
                     </div>
                 </div>
-
             </li>)});
     }
 

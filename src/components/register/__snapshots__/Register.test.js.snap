@@ -1,0 +1,88 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<Register/> Creates a snapshot 1`] = `
+<section
+  id="reg-section"
+>
+  <form
+    id="reg-form"
+    onSubmit={[Function]}
+  >
+    <fieldset>
+      <label
+        htmlFor="reg-first_name"
+      >
+        First name: 
+      </label>
+      <input
+        id="reg-first_name"
+        onChange={[Function]}
+        required={true}
+        type="text"
+      />
+      <label
+        htmlFor="reg-lat-name"
+      >
+        Last name: 
+      </label>
+      <input
+        id="reg-last-name"
+        onChange={[Function]}
+        required={true}
+        type="text"
+      />
+      <label
+        htmlFor="reg-email"
+      >
+        Email: 
+      </label>
+      <input
+        id="reg-email"
+        onChange={[Function]}
+        required={true}
+        type="email"
+      />
+      <label
+        htmlFor="reg-password"
+      >
+        Password: 
+      </label>
+      <input
+        id="reg-password"
+        onChange={[Function]}
+        required={true}
+        type="password"
+      />
+      <span
+        className="reg_pass_error"
+        style={
+          Object {
+            "color": "red",
+          }
+        }
+      >
+        Password must be longer than 8 characters
+      </span>
+      <label
+        htmlFor="reg_pass_match"
+      >
+        Retype password: 
+      </label>
+      <input
+        id="reg_pass_match"
+        onChange={[Function]}
+        required={true}
+        type="password"
+      />
+      
+      <button
+        id="reg-submit"
+        type="submit"
+      >
+        Register
+      </button>
+      
+    </fieldset>
+  </form>
+</section>
+`;

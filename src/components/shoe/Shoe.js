@@ -3,6 +3,7 @@ import "./shoe.css";
 
 export default class Shoe extends React.Component{
     render(){
+        
         return (
             <section>
                 <svg  version="1.1" className="checkout-SVG shoe" width="2560" height="1080" viewBox="0 0 216 166.027">
