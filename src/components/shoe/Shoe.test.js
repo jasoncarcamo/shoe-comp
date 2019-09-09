@@ -28,4 +28,10 @@ describe("<Shoe/>", ()=>{
         
         ReactDOM.unmountComponentAtNode(div);
     });
+
+    it("Creates snapshot", ()=>{
+        const tree = renderer.create(<BrowserRouter><Shoe {...props} /></BrowserRouter>).toJSON();
+
+        expect(tree).toMatchSnapshot();
+    });
 });
