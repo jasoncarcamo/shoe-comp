@@ -2,6 +2,7 @@ import React from "react";
 import UserService from "../../services/UserService";
 import Shoe from "../shoe/Shoe";
 import "./profile.css";
+import {Link} from "react-router-dom";
 
 export default class Profile extends React.Component{
     constructor(props){
@@ -33,7 +34,7 @@ export default class Profile extends React.Component{
                     this.formatData(data)
                 })
                 .catch(error => {
-                    this.setState({ error: error.error})
+                    return this.setState({ error: error.error})
                 });
         }
     }
@@ -71,7 +72,7 @@ export default class Profile extends React.Component{
             formatData = "[" + formatData + "]";
 
             if(formatData === "[{}]"){
-                return this.setState({ items: []});
+                return this.setState({ orders: []});
             };
 
             orders[index].items = JSON.parse(formatData)
@@ -139,17 +140,15 @@ export default class Profile extends React.Component{
             }
         }
 
-        console.log(this.props);
     }
     render(){
-        
         return (
             <section id="profile-section">
+
                 <h1>Hello {this.state.first_name} {this.state.last_name}</h1>
 
-                
-                {this.renderOrders()}
+                {this.state.orders.length === 0 ? <p id="profile-no-items">No items yet. Your first item will appear after you make you first <Link to="/shop">purchase</Link>.</p> : this.renderOrders()}
             </section>
-        )
-    }
-}
+        );
+    };
+};

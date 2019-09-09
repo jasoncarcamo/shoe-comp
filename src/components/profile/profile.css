@@ -50,6 +50,11 @@
     margin: 0 auto;
 }
 
+#profile-no-items{
+    width: 80%;
+    margin: 0 auto;
+    text-align: center;
+}
 
 @media screen and (max-width: 770px){
     .profile-orders div{

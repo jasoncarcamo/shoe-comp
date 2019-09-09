@@ -2,13 +2,13 @@ import React from 'react';
 import {Route} from 'react-router-dom';
 import './App.css';
 import Header from '../header/Header';
-import Home from "../home/Home";
+import LandingPage from "../landingPage/LandingPage";
 import Register from "../register/Register";
 import LogIn from "../login/LogIn";
 import Profile from "../profile/Profile";
 import RequestShoe from '../profile/requestShoe/RequestShoe';
 import Checkout from "../checkout/Checkout";
-import EditShoe from "../editShoe/EditShoe";
+import EditShoe from "../profile/editShoe/EditShoe";
 
 class App extends React.Component{
   
@@ -16,6 +16,7 @@ class App extends React.Component{
     return (
       <section id="main-section">
         <Route path="/" component={Header}></Route>
+        <Route exact path="/" component={LandingPage}></Route>
         <Route exact path="/shop" component={RequestShoe}></Route>
         <Route exact path="/user" component={Profile}></Route>
         <Route exact path="/register" component={Register}></Route>
