@@ -29,12 +29,19 @@ header{
 
 .logging-link{
     padding-right: 1em;
+    color: black;
 }
 
 #header-nav > h2{
     width: 50%;
     text-align: center;
     margin: 0 auto .5em auto;
+    font-size: 2em;
+}
+
+#header-nav > h2 > *{
+    text-decoration: none;
+    color: black;
 }
 
 
@@ -115,4 +122,55 @@ header{
 
 #nav-links *{
     color: black;
+}
+
+@media screen and (max-width: 770px){
+
+    #header-nav > ul{
+        display: none;
+    }
+
+    .showUl{
+        display: flex !important;
+    }
+
+    #header-nav h2{
+        margin-top: 1.5em;
+    }
+
+    .logging-container{
+        position: fixed;
+        right: 1em;
+        z-index: 3;
+    }
+
+    #nav-links{
+        position: fixed;
+        z-index: 2;
+        min-height: 100%;
+        width: 100%;
+        background-color: white;
+    }
+
+    #cart-container{
+        top: .1em;
+        right: 1em;
+    }
+
+    /* Menu icon - mobile view */
+
+    #menu-icon{
+        position: fixed;
+        top: 2.5em;
+        right: 1.5em;
+        width: 1.7em;
+        z-index: 3;
+    }
+
+    #menu-icon div{
+        width: 1.7em;
+        margin: .2em 0;
+        height: .3em;
+        background-color: black;
+    }
 }

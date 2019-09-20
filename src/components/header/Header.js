@@ -11,18 +11,19 @@ export default class Header extends React.Component{
         super(props);
         this.state = {
             items: [],
+            screenWidth: window.innerWidth
         }
     };
-    
+
+    static contextType = CartContext;
+
     componentDidMount(){
-        
+        window.addEventListener("resize", this.handleResize);
     }
 
     componentWillUnmount(){
-        
+        window.removeEventListener("resize", this.handleResize);
     }
-
-    static contextType = CartContext;
 
     amountOfItems = ()=>{
         let amount = this.context.items.length;
@@ -61,40 +62,103 @@ export default class Header extends React.Component{
         }
     }
 
+    renderLogin = ()=>{
+        return (
+            <>  
+                <li>
+                    <Link 
+                        to="/register" 
+                        className="logging-link" 
+                        onClick={this.handleMenuIcon}>Sign Up</Link></li>
+                <li>
+                    <Link 
+                        to="/login" 
+                        className="logging-link" 
+                        onClick={this.handleMenuIcon}>Log In</Link></li>
+            </>
+        );
+    };
+
     handleLogOut = ()=>{
         TokenService.clearAuthToken();
+        this.handleMenuIcon();
         this.props.history.push("/");
+    };
+
+    renderMenuIcon = ()=>{
+        return (
+            <div id="menu-icon" onClick={this.handleMenuIcon}>
+                <div></div>
+                <div></div>
+                <div></div>
+            </div>
+        )
+    }
+
+    handleMenuIcon = ()=>{
+        const uls = document.querySelectorAll("#header-nav > ul");
+
+        if(this.state.screenWidth <= 770){
+            Array.from(uls).forEach( ul =>{
+                ul.classList.toggle("showUl");
+            });
+        };
+    };
+
+    handleResize = ()=>{
+        this.setState({screenWidth: window.innerWidth})
     }
 
     render(){
-
         return (
             <header>
                 
                 <nav id="header-nav">
                     <ul className="logging-container">
-                        {TokenService.hasAuthToken() ? <li><Link to="/" className="logging-link" onClick={this.handleLogOut}>Log Out</Link></li> : <>  
-                    <li><Link to="/register" className="logging-link">Sign Up</Link></li>
-                    <li><Link to="/login" className="logging-link">Log In</Link></li>
-                </>}
+                        {TokenService.hasAuthToken() ? 
+                        <li>
+                            <Link 
+                                to="/" 
+                                className="logging-link" 
+                                onClick={this.handleLogOut}
+                                >Log Out</Link></li> : this.renderLogin()}
                     </ul>
                     
-                    <h2>Icon</h2>
+                    <h2>
+                        <Link to="/">Icon</Link>
+                    </h2>
+
+                    {this.renderMenuIcon()}
 
                     {TokenService.hasAuthToken() ? this.renderCart() : null}
 
                     <ul id="nav-links">
 
-                        <li><NavLink exact to="/" activeStyle={{fontSize: "1.2em", fontWeight: 700}}>Home</NavLink></li>
+                        <li>
+                            <NavLink 
+                                exact to="/" 
+                                activeStyle={{fontSize: "1.2em", fontWeight: 700}}
+                                onClick={this.handleMenuIcon}
+                                >Home</NavLink></li>
 
                         <li>
-                            <NavLink to="/shop" activeStyle={{fontSize: "1.2em", fontWeight: 700}}>Shop</NavLink>
+                            <NavLink 
+                                to="/shop" 
+                                activeStyle={{fontSize: "1.2em", fontWeight: 700}}
+                                onClick={this.handleMenuIcon}
+                                >Shop</NavLink>
                         </li>
 
                         {TokenService.hasAuthToken() ? <li>
-                            <NavLink to="/user" activeStyle={{fontSize: "1.2em", fontWeight: 700}}>Profile</NavLink>
+                            <NavLink 
+                                to="/user" 
+                                activeStyle={{fontSize: "1.2em", fontWeight: 700}} onClick={this.handleMenuIcon}>Profile</NavLink>
                         </li> : ''}
-                        <li><NavLink to="/about" activeStyle={{fontSize: "1.2em", fontWeight: 700}}>About Us</NavLink></li>
+
+                        <li>
+                            <NavLink 
+                                to="/about" 
+                                activeStyle={{fontSize: "1.2em", fontWeight: 700}} onClick={this.handleMenuIcon}>About Us</NavLink></li>
                     </ul>
                 </nav>
             </header>

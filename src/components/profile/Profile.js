@@ -99,7 +99,7 @@ export default class Profile extends React.Component{
                     <li key={index+"-"+ i} className="profile-orders">
 
                         <h4>Shoe: {i + 1}</h4>
-                        <Shoe top={order.items[i].top} middle={order.items[i].middle} bottom={order.items[i].bottom}></Shoe>
+                        <Shoe className="checkout-SVG" top={order.items[i].top} middle={order.items[i].middle} bottom={order.items[i].bottom}></Shoe>
 
                         <div>
                             <p>Size: {order.items[i].size}</p>

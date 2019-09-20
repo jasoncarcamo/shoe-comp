@@ -22,7 +22,7 @@
 
 .landing-page-SVG{
     display: block;
-    width: 45em;
+    width: 50em;
     padding: 2em 0;
     height: 25em;
     margin: 0 auto;
@@ -108,8 +108,9 @@
 }
 
 .third-section-SVG{
-    width: 50%;
+    width: 25em;
     height: 20em;
+    margin-left: 3em;
 }
 
 #third-section p{
@@ -140,6 +141,7 @@
 
     .third-section-SVG{
         width: 100%;
+        margin: 0;
     }
 
     #third-section p {

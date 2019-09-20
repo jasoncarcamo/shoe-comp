@@ -5,7 +5,7 @@ export default class Shoe extends React.Component{
     render(){
         return (
             <section>
-                <svg  version="1.1" className="checkout-SVG shoe" width="2560" height="1080" viewBox="0 0 216 166.027">
+                <svg  version="1.1" className={this.props.className} width="2560" height="1080" viewBox="0 0 216 166.027">
 
                 <path className="bottom layer" fill={this.props.bottom} d="M216,82.568c-0.013-4.393-2.253-8.503-6.449-12.699c1.111-8.4,0.559-27.178-5.099-43.148
                     c-4.747-13.419-13.099-24.856-27.089-26.489c-1.128-0.132-2.293-0.2-3.495-0.2c-5.099-0.368-11.571,2.417-19.423,9.856
