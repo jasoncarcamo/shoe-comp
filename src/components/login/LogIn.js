@@ -28,11 +28,8 @@ export default class Login extends React.Component{
 
         UserService.login({email: this.state.email, password: this.state.password})
             .then(resData => {
-                if(!resData.error){
+                    console.log(resData)
                     TokenService.saveAuthToken(resData.authToken);
-                    this.props.history.push("/user")
-                };
-
                 })
             .catch(err => this.setState({ error: err.error}))
     }
