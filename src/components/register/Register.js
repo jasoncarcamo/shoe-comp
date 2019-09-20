@@ -76,7 +76,6 @@ export default class Register extends React.Component{
     }
 
     handleLoginLink = (state)=>{
-
         let errors = state.error.split(".");
         let loginHere;
 
