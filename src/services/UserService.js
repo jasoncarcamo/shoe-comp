@@ -4,7 +4,7 @@ const UserService = {
 
     register(form){
         
-        return fetch("http://localhost:8000/api/register", {
+        return fetch("https://salty-brushlands-63375.herokuapp.com/api/register", {
             method: "POST",
             headers: {
                 'content-type': "application/json"
@@ -18,7 +18,7 @@ const UserService = {
     },
     login(form){
 
-        return fetch("https://safe-spire-91138.herokuapp.com/login", {
+        return fetch("https://salty-brushlands-63375.herokuapp.com/api/login", {
             method: "POST",
             headers: {
                 'content-type': "application/json"
@@ -31,7 +31,7 @@ const UserService = {
             })
     },
     getUser(){
-        return fetch("http://localhost:8000/user", {
+        return fetch("https://salty-brushlands-63375.herokuapp.com/user", {
             headers: {
                 'content-type': "application/json",
                 'authorization': `bearer ${TokenService.getAuthToken()}`
@@ -43,7 +43,7 @@ const UserService = {
             })
     },
     getOrders(){
-        return fetch("http://localhost:8000/user/order", {
+        return fetch("https://salty-brushlands-63375.herokuapp.com/user/order", {
             headers: {
                 'content-type': "application/json",
                 'authorization': `bearer ${TokenService.getAuthToken()}`
