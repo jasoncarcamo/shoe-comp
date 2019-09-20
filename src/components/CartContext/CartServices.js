@@ -10,8 +10,10 @@ const CartServices = {
             }            
         })
             .then( res =>{
-                return !res.ok ? res.json().then(e => {
-                    return Promise.reject(e)}) : res.json()
+                if(!res.ok){
+                    return res.json().then(e => Promise.reject(e))
+                }
+                return res.json();
             })
     },
     placeOrder(items){
@@ -24,8 +26,10 @@ const CartServices = {
             body: JSON.stringify({items})
         })
             .then( res => {
-                return !res.ok ? res.json().then(e => {
-                    return Promise.reject(e)}) : res.json()
+                if(!res.ok){
+                    return res.json().then(e => Promise.reject(e))
+                }
+                return res.json();
             })
     }, 
     cartFunctions(method, items){
@@ -39,8 +43,10 @@ const CartServices = {
             body: JSON.stringify(items)
         })
             .then( res => {
-                return !res.ok ? res.json().then(e => {
-                    return Promise.reject(e)}) : res.json()
+                if(!res.ok){
+                    return res.json().then(e => Promise.reject(e))
+                }
+                return res.json();
             })
     },
     deleteCart(){
@@ -52,8 +58,10 @@ const CartServices = {
             }
         })
             .then( res => {
-                return !res.ok ? res.json().then(e => {
-                    return Promise.reject(e)}) : res.json()
+                if(!res.ok){
+                    return res.json().then(e => Promise.reject(e))
+                }
+                return res.json();
             })
     }
 };

@@ -12,8 +12,10 @@ const UserService = {
             body: JSON.stringify(form)
         })
             .then( res =>{
-                return !res.ok ? res.json().then(e => {
-                    return Promise.reject(e)}) : res.json()
+                if(!res.ok){
+                    return res.json().then(e => Promise.reject(e))
+                }
+                return res.json();
             });
     },
     login(form){
@@ -26,8 +28,10 @@ const UserService = {
             body: JSON.stringify(form)
         })
             .then( res => {
-                return !res.ok ? res.json().then(e => {
-                    return Promise.reject(e)}) : res.json()
+                if(!res.ok){
+                    return res.json().then(e => Promise.reject(e))
+                }
+                return res.json();
             })
     },
     getUser(){
@@ -38,8 +42,10 @@ const UserService = {
             }
         })
             .then( res => {
-                return !res.ok ? res.json().then(e => {
-                    return Promise.reject(e)}) : res.json()
+                if(!res.ok){
+                    return res.json().then(e => Promise.reject(e))
+                }
+                return res.json();
             })
     },
     getOrders(){
@@ -50,8 +56,10 @@ const UserService = {
             }
         })
             .then( res => {
-                return !res.ok ? res.json().then(e => {
-                    return Promise.reject(e)}) : res.json()
+                if(!res.ok){
+                    return res.json().then(e => Promise.reject(e))
+                }
+                return res.json();
             })
     }
 };
