@@ -14,38 +14,36 @@ export default class Profile extends React.Component{
             isMounted: false,
             error: ""
         }
-
-        this.mountComponent();
     }
 
     componentDidMount(){
+        
+        UserService.getUser()
+            .then( res => {
+                this.setState(res);               
+            })
+            .catch( error => this.setState({ error: error.error}))
 
-        if(this.state.isMounted){
-            UserService.getUser()
-                .then( res => {
-                    this.setState(res);               
-                })
-                .catch( error => this.setState({ error: error.error}))
-
-            UserService.getOrders()
-                .then( data => {
-                    this.formatData(data)
-                })
-                .catch(error => {
-                    return this.setState({ error: error.error})
-                });
-        }
+        UserService.getOrders()
+            .then( data => {
+                this.formatData(data)
+            })
+            .catch(error => {
+                return this.setState({ error: error.error})
+            });
+    
     }
 
     
     componentWillUnmount(){
-        this.setState({ isMounted: false});
-    }
-
-    mountComponent = ()=>{
-        this.setState({ isMounted: true});
-    }
-
+        this.setState({
+            first_name: "",
+            last_name: "",
+            orders: [],
+            isMounted: false,
+            error: ""
+        });
+    };
 
     formatData = (data)=>{
 
