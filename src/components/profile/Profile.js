@@ -14,10 +14,8 @@ export default class Profile extends React.Component{
             isMounted: false,
             error: ""
         }
-    }
 
-    UNSAFE_componentWillMount(){
-        this.setState({isMounted: true});
+        this.mountComponent();
     }
 
     componentDidMount(){
@@ -25,7 +23,7 @@ export default class Profile extends React.Component{
         if(this.state.isMounted){
             UserService.getUser()
                 .then( res => {
-                    this.setState(res);                
+                    this.setState(res);               
                 })
                 .catch( error => this.setState({ error: error.error}))
 
@@ -38,6 +36,16 @@ export default class Profile extends React.Component{
                 });
         }
     }
+
+    
+    componentWillUnmount(){
+        this.setState({ isMounted: false});
+    }
+
+    mountComponent = ()=>{
+        this.setState({ isMounted: true});
+    }
+
 
     formatData = (data)=>{
 
@@ -80,10 +88,6 @@ export default class Profile extends React.Component{
         });
         this.setState({orders})
 
-    }
-
-    componentWillUnmount(){
-        this.setState({ isMounted: false});
     }
 
     renderOrders = ()=>{
