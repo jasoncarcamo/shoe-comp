@@ -1,0 +1,19 @@
+#about-section{
+    margin: 5em auto;
+    padding: 0;
+}
+
+#about-section > h1{
+    width: 50%;
+    text-align: center;
+    font-size: 1.4em;
+    margin: 0 auto;
+}
+
+#about-section > p{
+    width: 70%;
+    text-align: center;
+    margin: 1em auto 0 auto;
+    line-height: 1em;
+    letter-spacing: .05em;
+}

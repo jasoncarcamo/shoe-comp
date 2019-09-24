@@ -129,7 +129,7 @@ export default class Home extends React.Component{
                     </ul>
                 </section>
 
-                <Link className="get-started-button" to="/login">Get started</Link>
+                <Link className="get-started-button" to="/shop">Get started</Link>
             </section>
         )
     }

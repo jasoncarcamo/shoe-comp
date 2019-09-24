@@ -58,6 +58,11 @@
 
 @media screen and (max-width: 770px){
     .profile-orders div{
+        display: flex;
+        flex-direction: column;
+        justify-content: space-evenly;
         width: auto;
+        padding: 1em;
     }
+
 }

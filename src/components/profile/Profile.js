@@ -3,6 +3,8 @@ import UserService from "../../services/UserService";
 import Shoe from "../shoe/Shoe";
 import "./profile.css";
 import {Link} from "react-router-dom";
+import dateFormat from "dateformat"
+
 
 export default class Profile extends React.Component{
     constructor(props){
@@ -26,6 +28,7 @@ export default class Profile extends React.Component{
 
         UserService.getOrders()
             .then( data => {
+                console.log(data);
                 this.formatData(data)
             })
             .catch(error => {
@@ -107,6 +110,7 @@ export default class Profile extends React.Component{
                             <p>Size: {order.items[i].size}</p>
 
                             <p>Quantity: {order.items[i].quantity}</p>
+                            <p>Date ordered: {dateFormat(order.date_created, "mmm dd yyyy")}</p>
                         </div>
 
                     </li>

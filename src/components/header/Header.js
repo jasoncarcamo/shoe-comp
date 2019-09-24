@@ -125,7 +125,7 @@ export default class Header extends React.Component{
                     </ul>
                     
                     <h2>
-                        <Link to="/">Icon</Link>
+                        <Link to="/">Shoe comp</Link>
                     </h2>
 
                     {this.renderMenuIcon()}
