@@ -28,7 +28,6 @@ export default class Profile extends React.Component{
 
         UserService.getOrders()
             .then( data => {
-                console.log(data);
                 this.formatData(data)
             })
             .catch(error => {

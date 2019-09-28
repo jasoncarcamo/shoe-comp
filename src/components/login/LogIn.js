@@ -15,6 +15,12 @@ export default class Login extends React.Component{
         };
     };
 
+    componentDidMount(){
+        if(TokenService.hasAuthToken()){
+            this.props.history.push("/user");
+        };
+    }
+
     handleEmail = (e)=>{
         this.setState({ email: e.target.value});
     };

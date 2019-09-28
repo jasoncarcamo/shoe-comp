@@ -22,9 +22,9 @@
 
 .landing-page-SVG{
     display: block;
-    width: 50em;
+    width: 100%;
     padding: 2em 0;
-    height: 25em;
+    height: 34em;
     margin: 0 auto;
     background-color: lightgrey;
 }
@@ -110,7 +110,7 @@
 .third-section-SVG{
     width: 25em;
     height: 20em;
-    margin-left: 3em;
+    margin-left: 7em;
 }
 
 #third-section p{
@@ -199,6 +199,12 @@
     border: .3em solid black;
     text-decoration: none;
     color: black;
+}
+
+@media screen and (min-width: 2000px){
+    .third-section-SVG{
+        margin-left: 30em;
+    }
 }
 
 

@@ -18,6 +18,7 @@ export default class RequestShoe extends React.Component{
             bottom: '',
             size: 1,
             quantity: 1,
+            screenWidth: window.innerWidth,
             error: ""
         }
     }
@@ -25,11 +26,20 @@ export default class RequestShoe extends React.Component{
     static contextType = CartContext;
 
     componentDidMount(){
+        window.addEventListener("resize", this.handleScreenWidth);
         this.resetState();
         this.hoverLayer();
         this.handleColorChange();
         this.randomColorHandler();
     };
+    
+    componentWillUnmount(){
+        window.removeEventListener("resize", this.handleScreenWidth)
+    }
+
+    handleScreenWidth = ()=>{
+        this.setState({ screenWidth: window.innerWidth})
+    }
 
     resetState = ()=>{
         document.getElementsByClassName("top")[0].style.fill = "#BCBEC0";
@@ -67,12 +77,12 @@ export default class RequestShoe extends React.Component{
                 this.setState({ layer: e.target.className.animVal.split(" ")[0] + "-color"});
                 
                 layer.style.display = "block";
-                layer.style.top =  `${e.clientY / 18}em`;
-                layer.style.left = `${e.clientX / 23}em`
+                layer.style.top =  `${window.innerHeight / 2}px`;
+                layer.style.left = `${window.innerWidth / 2}px`
 
-            })
-        })
-    }
+            });
+        });
+    };
 
     renderSizes = ()=>{
         let sizes = [];
@@ -121,8 +131,18 @@ export default class RequestShoe extends React.Component{
         const colorPicker = document.getElementById("color-picker");
 
         colorPicker.style.display = "block";
-        colorPicker.style.top = `${e.clientY / 21}em`;
-        colorPicker.style.left = `${e.clientX / 26}em`;
+
+        if(this.state.screenWidth <= 770){            
+            colorPicker.style.top = `${window.innerHeight / 2 }px`;
+            colorPicker.style.left = `${window.innerWidth / 2 }px`;
+        } 
+         else{
+            
+        colorPicker.style.top = `${e.clientY - 100}px`;
+        colorPicker.style.left = `${e.clientX }px`;
+
+        }
+
         this.setState({ layer: layerClassName[0]})
     };
 

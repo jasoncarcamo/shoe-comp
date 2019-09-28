@@ -60,7 +60,7 @@
     .profile-orders div{
         display: flex;
         flex-direction: column;
-        justify-content: space-evenly;
+        justify-content: space-between;
         width: auto;
         padding: 1em;
     }
