@@ -88,7 +88,7 @@ export default class Home extends React.Component{
             <section id="landing-page-section">
                 <section id="shoe-display-section">
                     <div id="shoe-display-container">
-                        <Shoe className="landing-page-SVG" top="black" middle="whitesmoke" bottome="black"></Shoe>
+                        <Shoe className="landing-page-SVG" top="black" middle="purple" bottom="black"></Shoe>
 
                         <Link to="/shop" id="shop-now-button" type="button">Shop now</Link>
                     </div>
@@ -119,7 +119,7 @@ export default class Home extends React.Component{
                 </section>
 
                 <section id="third-section">
-                    <Shoe className="third-section-SVG" top="black" middle="grey" bottom="black"></Shoe>  
+                    <Shoe className="third-section-SVG" top="orange" middle="gold" bottom="blue"></Shoe>  
                     <p>Breatheable, Colorful, and Aesthetic</p>
                 </section>
 

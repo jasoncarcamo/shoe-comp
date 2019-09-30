@@ -1,0 +1,21 @@
+footer{
+    display: flex;  
+    justify-content: space-evenly;
+    padding: 1.5em;
+    margin-top: 9.5em;
+}
+
+#footer-facebook{
+    font-size: 2em;
+    color: #3b5998;
+}
+
+#footer-instagram{
+    font-size: 2em;
+    color: #FFDC80;
+}
+
+#footer-twitter{
+    font-size: 2em;
+    color: #1DA1F2;
+}
