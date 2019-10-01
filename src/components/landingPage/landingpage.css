@@ -26,7 +26,7 @@
     padding: 2em 0;
     height: 34em;
     margin: 0 auto;
-    background-color: lightgrey;
+    background-color: #edeff8;
 }
 
 #shop-now-button{
@@ -108,7 +108,7 @@
 
 #third-section{
     display: flex;
-    background-color: lightgrey;
+    background-color: #edeff8;
 }
 
 .third-section-SVG{

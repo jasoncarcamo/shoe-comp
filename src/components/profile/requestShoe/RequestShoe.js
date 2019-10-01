@@ -200,8 +200,6 @@ export default class RequestShoe extends React.Component{
         return (
             <section id="SVG-container">
 
-                <h5 id="not-logged-in">{this.state.error ? this.state.error : ""}</h5>
-
                 <Shoe className="SVG" top="#BCBEC0" middle="#636466" bottom="#B0D1E0"></Shoe>
                     
                     <label id="size-label" htmlFor="sizeSelect">Size: 
@@ -230,6 +228,8 @@ export default class RequestShoe extends React.Component{
                     </div>
                     <button id="random-color" type="button">Randomize</button>
                     <button id="add-checkout" type="button" onClick={this.handleAddToCart}>Add to checkout</button>
+
+                    <h5 id="not-logged-in">{this.state.error ? this.state.error : ""}</h5>
             </section>
         )
     }
