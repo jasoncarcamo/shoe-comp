@@ -74,7 +74,6 @@
     display: block;
     margin: 0 auto;
     font-size: 5em;
-    color: lightskyblue;
 }
 
 
@@ -82,14 +81,12 @@
     display: block;
     margin: 0 auto;
     font-size: 5em;
-    color: yellow;
 }
 
 #features-wifi-icon{
     display: block;
     margin: 0 auto;
     font-size: 5em;
-    color: green;
 }
 
 #features-container li h2{

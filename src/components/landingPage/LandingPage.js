@@ -37,7 +37,8 @@ export default class Home extends React.Component{
    
         for(let i = 0; i < 7; i++){
             shoeList[i] = (<li key={i} className="shoe-container">
-                <Shoe className="shoe-example-SVG" top={this.renderColors()} middle={this.renderColors()} bottom={this.renderColors()}></Shoe>
+                
+                <Shoe className="shoe-example-SVG" top="black" middle="lightgrey" bottom="black"></Shoe>
 
             <p>What color scheme will you come up with?</p>
         </li>)
@@ -88,7 +89,7 @@ export default class Home extends React.Component{
             <section id="landing-page-section">
                 <section id="shoe-display-section">
                     <div id="shoe-display-container">
-                        <Shoe className="landing-page-SVG" top="black" middle="purple" bottom="black"></Shoe>
+                        <Shoe className="landing-page-SVG" top="black" middle="white" bottom="black"></Shoe>
 
                         <Link to="/shop" id="shop-now-button" type="button">Shop now</Link>
                     </div>
@@ -119,7 +120,7 @@ export default class Home extends React.Component{
                 </section>
 
                 <section id="third-section">
-                    <Shoe className="third-section-SVG" top="orange" middle="gold" bottom="blue"></Shoe>  
+                    <Shoe className="third-section-SVG" top="black" middle="white" bottom="black"></Shoe>  
                     <p>Breatheable, Colorful, and Aesthetic</p>
                 </section>
 
