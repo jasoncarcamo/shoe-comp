@@ -86,12 +86,18 @@ export default class Home extends React.Component{
         
         return (
             <section id="landing-page-section">
+
                 <section id="shoe-display-section">
                     <div id="shoe-display-container">
                         <Shoe className="landing-page-SVG" top="black" middle="purple" bottom="black"></Shoe>
 
                         <Link to="/shop" id="shop-now-button" type="button">Shop now</Link>
                     </div>
+                </section>
+
+                <section id="about-section">
+                    <h1>Shoe Comp...</h1>
+                    <p>...strives to bring aesthetics and durabilty together to create fashionable street wear.</p>
                 </section>
 
                 <section id="features-section">

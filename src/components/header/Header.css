@@ -122,7 +122,7 @@ header{
 
 @media screen and (max-width: 770px){
 
-    #header-nav > ul{
+    #nav-links{
         display: none;
     }
 
@@ -135,7 +135,7 @@ header{
     }
 
     .logging-container{
-        position: fixed;
+        position: absolute;
         right: 1em;
         z-index: 3;
     }

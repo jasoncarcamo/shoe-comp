@@ -6,7 +6,6 @@ import LandingPage from "../landingPage/LandingPage";
 import Register from "../register/Register";
 import LogIn from "../login/LogIn";
 import Profile from "../profile/Profile";
-import About from "../about/About";
 import Footer from "../footer/Footer";
 import RequestShoe from '../profile/requestShoe/RequestShoe';
 import Checkout from "../checkout/Checkout";
@@ -21,7 +20,6 @@ class App extends React.Component{
         <Route exact path="/" component={LandingPage}></Route>
         <Route exact path="/shop" component={RequestShoe}></Route>
         <Route exact path="/user" component={Profile}></Route>
-        <Route exact path="/about" component={About}></Route>
         <Route exact path="/register" component={Register}></Route>
         <Route exact path="/login" component={LogIn}></Route>
         <Route exact path="/checkout" component={Checkout}></Route>

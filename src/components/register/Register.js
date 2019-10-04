@@ -12,6 +12,7 @@ export default class Register extends React.Component{
             email: null,
             password: "",
             passwordMatch: "",
+            isLoading: false,
             error: ""
         }
     }
@@ -63,7 +64,10 @@ export default class Register extends React.Component{
     }
 
     handleSubmit = (e) =>{
+
         e.preventDefault();
+
+        this.setState({ isLoading: true});
 
         UserService.register({first_name: this.state.first_name,
             last_name: this.state.last_name,
@@ -72,7 +76,7 @@ export default class Register extends React.Component{
             .then( resData => {
                 this.props.history.push("/login");
             })
-            .catch( error => this.setState({ error: error.error}))
+            .catch( error => this.setState({ error: error.error, isLoading: false}));
     }
 
     handleLoginLink = (state)=>{
@@ -91,6 +95,14 @@ export default class Register extends React.Component{
 
         return <span id="reg-error">{state.error}</span>;
         
+    }
+
+    renderSignup = ()=>{
+        if(this.state.isLoading){
+            return <p style={{textAlign: "center"}}>Loading...</p>;
+        } else{
+            return <button id="reg-submit" type="submit">Register</button>;
+        }
     }
 
     render(){
@@ -114,7 +126,7 @@ export default class Register extends React.Component{
                         <label htmlFor="reg_pass_match">Retype password: </label>
                         <input id="reg_pass_match" type="password" onChange={this.handlePasswordConfirm} required></input>
                         {this.state.passwordMatch.length > 5 ? this.handlePasswordMatch() : ""}
-                        <button id="reg-submit" type="submit">Register</button>
+                        {this.renderSignup()}
                         {this.state.error ? this.handleLoginLink(this.state) : ""}
                     </fieldset>
                 </form>

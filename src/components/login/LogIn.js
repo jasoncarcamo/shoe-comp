@@ -11,6 +11,7 @@ export default class Login extends React.Component{
             currentInput: 1,
             email: "",
             password: "",
+            isLoading: false,
             error: ''
         };
     };
@@ -31,13 +32,14 @@ export default class Login extends React.Component{
 
     handleSubmit = (e)=>{
         e.preventDefault();
-
+        this.setState({ isLoading: true});
         UserService.login({email: this.state.email, password: this.state.password})
             .then(resData => {
                     TokenService.saveAuthToken(resData.authToken);
+                    this.setState({ isLoading: false})
                     this.props.history.push("/user")
             })
-            .catch(err => this.setState({ error: err.error}))
+            .catch(err => this.setState({ error: err.error, isLoading: false}))
     }
 
     handleSignUpLink = (state)=>{
@@ -51,6 +53,14 @@ export default class Login extends React.Component{
         };
 
         return <span id="login-error">{state.error}</span>;
+    }
+
+    renderLogin = ()=>{
+        if(this.state.isLoading){
+            return <p style={{textAlign: "center"}}>Loading...</p>;
+        } else{
+            return <button type="submit" id="login-submit">Log In</button>;
+        }
     }
 
     render(){
@@ -73,7 +83,7 @@ export default class Login extends React.Component{
                     
                     {this.state.error ? this.handleSignUpLink(this.state) : (<span id="login-error">Not registered? Sign up <Link to="/register">here</Link></span>)}    
 
-                    <button type="submit" id="login-submit">Log In</button>
+                    {this.renderLogin()}
                     </fieldset>
                 </form>
             </section>

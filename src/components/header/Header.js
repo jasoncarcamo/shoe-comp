@@ -92,16 +92,18 @@ export default class Header extends React.Component{
                 <div></div>
                 <div></div>
             </div>
-        )
+        );
     }
 
     handleMenuIcon = ()=>{
-        const uls = document.querySelectorAll("#header-nav > ul");
+        const ul = document.getElementById("nav-links");
 
         if(this.state.screenWidth <= 770){
-            Array.from(uls).forEach( ul =>{
-                ul.classList.toggle("showUl");
+            
+            ul.addEventListener("touchmove", (e)=>{
+                e.preventDefault();
             });
+            ul.classList.toggle("showUl");
         };
     };
 
@@ -155,10 +157,6 @@ export default class Header extends React.Component{
                                 activeStyle={{fontSize: "1.2em", fontWeight: 700}} onClick={this.handleMenuIcon}>Profile</NavLink>
                         </li> : ''}
 
-                        <li>
-                            <NavLink 
-                                to="/about" 
-                                activeStyle={{fontSize: "1.2em", fontWeight: 700}} onClick={this.handleMenuIcon}>About Us</NavLink></li>
                     </ul>
                 </nav>
             </header>
