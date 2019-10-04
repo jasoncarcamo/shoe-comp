@@ -30,6 +30,7 @@ header{
 .logging-link{
     padding-right: 1em;
     color: black;
+    height: 2.7em;
 }
 
 #header-nav > h2 *{
