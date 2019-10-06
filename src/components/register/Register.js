@@ -2,6 +2,7 @@ import React from "react";
 import {Link} from "react-router-dom";
 import "./register.css";
 import UserService from "../../services/UserService";
+import TokenService from "../../services/TokenService";
 
 export default class Register extends React.Component{
     constructor(props){
@@ -74,7 +75,8 @@ export default class Register extends React.Component{
             email: this.state.email,
             password: this.state.password})
             .then( resData => {
-                this.props.history.push("/login");
+                TokenService.saveAuthToken(resData.authToken);
+                this.props.history.push("/user");
             })
             .catch( error => this.setState({ error: error.error, isLoading: false}));
     }
