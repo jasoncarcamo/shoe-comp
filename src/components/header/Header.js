@@ -69,12 +69,12 @@ export default class Header extends React.Component{
                     <Link 
                         to="/register" 
                         className="logging-link" 
-                        onClick={this.handleMenuIcon}>Sign Up</Link></li>
+                        onClick={this.hideNav}>Sign Up</Link></li>
                 <li>
                     <Link 
                         to="/login" 
                         className="logging-link" 
-                        onClick={this.handleMenuIcon}>Log In</Link></li>
+                        onClick={this.hideNav}>Log In</Link></li>
             </>
         );
     };
@@ -97,6 +97,7 @@ export default class Header extends React.Component{
 
     handleMenuIcon = ()=>{
         const ul = document.getElementById("nav-links");
+        const loggingContainer = document.getElementsByClassName("logging-container");
 
         if(this.state.screenWidth <= 770){
             
@@ -104,8 +105,19 @@ export default class Header extends React.Component{
                 e.preventDefault();
             });
             ul.classList.toggle("showUl");
+            loggingContainer[0].classList.toggle("show");
         };
     };
+
+    hideNav = (e)=>{
+        const ul = document.getElementById("nav-links");
+        const loggingContainer = document.getElementsByClassName("logging-container");
+
+        if(this.state.screenWidth <= 770){
+            ul.classList.remove("showUl");
+            loggingContainer[0].classList.remove("show");
+        };
+    }
 
     handleResize = ()=>{
         this.setState({screenWidth: window.innerWidth})

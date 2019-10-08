@@ -52,7 +52,7 @@ export default class Checkout extends React.Component{
                     
                     <div className="checkout-item-info">
                         <p>Size: {order.size}</p>
-                        <p>Quatity: {order.quantity}</p>
+                        <p>Quantity: {order.quantity}</p>
                     </div>
                 </div>
 

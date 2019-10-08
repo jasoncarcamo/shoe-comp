@@ -106,7 +106,7 @@ export default class Home extends React.Component{
                         <li>
                             <FontAwesomeIcon id="features-wifi-icon" icon={faWifi}></FontAwesomeIcon>
                             <h2>Order Online</h2>
-                            <p>Select your size and easliy add your new shoe to your cart</p>
+                            <p>Select your size and easily add your new shoe to your cart</p>
                         </li>
                         
                         <li>

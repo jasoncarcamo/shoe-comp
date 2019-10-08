@@ -131,11 +131,16 @@ header{
         display: flex !important;
     }
 
+    .show{
+        display: flex !important;
+    }
+
     #header-nav h2{
         margin-top: 1.5em;
     }
 
     .logging-container{
+        display: none;
         position: absolute;
         right: 1em;
         z-index: 3;

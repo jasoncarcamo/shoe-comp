@@ -24,14 +24,17 @@ export default class Profile extends React.Component{
             .then( res => {
                 this.setState(res);               
             })
-            .catch( error => this.setState({ error: error.error}))
+            .catch( error => {
+                this.setState({ error: error.error});
+            });
 
+        
         UserService.getOrders()
             .then( data => {
-                this.formatData(data)
+                this.formatData(data);
             })
-            .catch(error => {
-                return this.setState({ error: error.error})
+            .catch( error => {
+                this.setState({ error: error.error});
             });
     
     }
@@ -50,6 +53,7 @@ export default class Profile extends React.Component{
     formatData = (data)=>{
 
         let orders = data;
+        
         orders.forEach((order, index)=>{
 
             let formatData = order.items.split("");
@@ -86,6 +90,7 @@ export default class Profile extends React.Component{
             orders[index].items = JSON.parse(formatData)
 
         });
+
         this.setState({orders})
 
     }

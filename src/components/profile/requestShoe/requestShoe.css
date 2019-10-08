@@ -113,6 +113,10 @@ select{
     }
 
     .logging-container{
+        display: none;
         width: 50%;
+        position: fixed;
+        right: 0;
+        top: 0;
     }
 }
