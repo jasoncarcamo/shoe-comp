@@ -194,7 +194,7 @@ export default class EditShoe extends React.Component{
                     <div className="bottom-color color-layer" style={{backgroundColor: this.state.bottom}} onClick={this.layerColor}></div>
                 </div>
                 <button id="random-color" type="button">Randomize</button>
-                <button id="add-checkout" type="button" onClick={this.handleEditItem}>Edit item</button>
+                <button id="add-checkout" type="button" onClick={this.handleEditItem}>Save</button>
                 <button id="cancel-edit-button" type="button" onClick={this.handleCancelEdit}>Cancel</button>
                 {this.state.error ? this.state.error : ""}
             </section>
