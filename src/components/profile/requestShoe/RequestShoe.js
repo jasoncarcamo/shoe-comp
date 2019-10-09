@@ -132,13 +132,13 @@ export default class RequestShoe extends React.Component{
 
         colorPicker.style.display = "block";
 
-        if(this.state.screenWidth <= 770){            
+        if(this.state.screenWidth < 771){            
             colorPicker.style.top = `${window.innerHeight / 2 }px`;
             colorPicker.style.left = `${window.innerWidth / 2 }px`;
         } 
          else{
             
-        colorPicker.style.top = `${e.clientY - 100}px`;
+        colorPicker.style.top = `${e.clientY + 100}px`;
         colorPicker.style.left = `${e.clientX }px`;
 
         }
@@ -197,6 +197,7 @@ export default class RequestShoe extends React.Component{
     }
 
     render(){
+        
         return (
             <section id="SVG-container">
 
