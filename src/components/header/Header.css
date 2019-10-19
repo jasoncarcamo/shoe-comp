@@ -23,12 +23,11 @@ header{
     display: flex;
     width: 10em;
     justify-content: space-evenly;
-    margin-left: auto;
+    margin: 0 auto;
     text-align: right;
 }
 
 .logging-link{
-    padding-right: 1em;
     color: black;
     height: 2.7em;
 }
@@ -44,7 +43,7 @@ header{
 
 /*Checkout button section*/
 #cart-container{
-    position: fixed;
+    position: absolute;
     top: 5em;
     right: 0;
     margin-left: auto;
@@ -73,12 +72,13 @@ header{
 }
 
 #checkout-container > div{
+    position: relative;
     width: 1em;
     height: 1em;
     transform: rotate(45deg);
     margin: 0 auto;
     background-color: black;
-    z-index: -1;
+    z-index: 4 !important;
 }
 
 #checkout-container > span {
@@ -124,45 +124,98 @@ header{
 
 @media screen and (max-width: 770px){
 
+    header{
+        margin: 0;
+    }
+
     #nav-links{
         display: none;
         position: fixed;
-        z-index: 2;
-        height: 100vh;
+        z-index: 0;
+        height: 100Vh;
+        border: 1px solid black;
         top: 0;
+        left: 0;
         width: 100%;
         background-color: white;
     }
 
     .showUl{
         display: flex !important;
+        z-index: 2;
+        animation-name: showUl;
+        animation-duration: 1s;
+    }
+
+    .hideUl{
+        display: none !important;
+        animation-name: hideUl;
+        animation-duration: 1s;
+    }
+    
+    @keyframes showUl {
+        from{
+            transform: translateX(100%);
+        }
+
+        to{
+            
+            transform: translateX(0) !important;
+        }
+    }
+
+    @keyframes hideUl{
+        from{
+            transform: translateX(0) !important;
+        }
+        to{
+            transform: translateX(100%) !important;
+        }
     }
 
     .show{
         display: flex !important;
     }
 
+    #header-nav{
+        position: absolute;
+        top: 0;
+        left: 0;
+        z-index: 5 !important;
+        margin: 0;
+        background-color: white;
+        border-bottom: .1em solid lightgrey;
+    }
+
     #header-nav h2{
-        margin-top: 1.5em;
+        margin-top: 0;
+        font-size: .9em;
+        text-align: left;
+        margin-left: 1em;;
     }
 
     .logging-container{
         display: none;
+        width: 100% !important;
         position: absolute;
+        top: 15.8em !important;
+        text-align: center;
         right: 1em;
         z-index: 3;
+        border: 1px solid black;
     }
 
     #cart-container{
-        top: .1em;
+        top: -.8em;
         right: 1em;
+        font-size: .8em;
     }
 
     /* Menu icon - mobile view */
 
     #menu-icon{
-        position: fixed;
-        top: 2.5em;
+        position: absolute;
+        top: 1em;
         right: 1.5em;
         width: 1.7em;
         z-index: 3;

@@ -97,25 +97,23 @@ export default class Header extends React.Component{
 
     handleMenuIcon = ()=>{
         const ul = document.getElementById("nav-links");
-        const loggingContainer = document.getElementsByClassName("logging-container");
 
         if(this.state.screenWidth <= 770){
             
             ul.addEventListener("touchmove", (e)=>{
                 e.preventDefault();
             });
+            
             ul.classList.toggle("showUl");
-            loggingContainer[0].classList.toggle("show");
+
         };
     };
 
     hideNav = (e)=>{
         const ul = document.getElementById("nav-links");
-        const loggingContainer = document.getElementsByClassName("logging-container");
 
         if(this.state.screenWidth <= 770){
-            ul.classList.remove("showUl");
-            loggingContainer[0].classList.remove("show");
+            ul.classList.to("showUl");
         };
     }
 
@@ -128,15 +126,6 @@ export default class Header extends React.Component{
             <header>
                 
                 <nav id="header-nav">
-                    <ul className="logging-container">
-                        {TokenService.hasAuthToken() ? 
-                        <li>
-                            <Link 
-                                to="/" 
-                                className="logging-link" 
-                                onClick={this.handleLogOut}
-                                >Log Out</Link></li> : this.renderLogin()}
-                    </ul>
                     
                     <h2>
                         <Link to="/">Shoe comp</Link>
@@ -169,6 +158,13 @@ export default class Header extends React.Component{
                                 activeStyle={{fontSize: "1.2em", fontWeight: 700}} onClick={this.handleMenuIcon}>Profile</NavLink>
                         </li> : ''}
 
+                        {TokenService.hasAuthToken() ? 
+                        <li>
+                            <Link 
+                                to="/" 
+                                className="logging-link" 
+                                onClick={this.handleLogOut}
+                                >Log Out</Link></li> : this.renderLogin()}
                     </ul>
                 </nav>
             </header>
