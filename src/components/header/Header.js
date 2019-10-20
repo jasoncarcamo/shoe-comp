@@ -66,15 +66,22 @@ export default class Header extends React.Component{
         return (
             <>  
                 <li>
-                    <Link 
-                        to="/register" 
-                        className="logging-link" 
-                        onClick={this.hideNav}>Sign Up</Link></li>
-                <li>
-                    <Link 
-                        to="/login" 
-                        className="logging-link" 
-                        onClick={this.hideNav}>Log In</Link></li>
+                    <NavLink 
+                    exact to="/register" 
+                    activeStyle={{fontSize: "1.2em", fontWeight: 700}}
+                    onClick={this.hideNav}
+                    className="logging-link"
+                    >Sign Up</NavLink>
+                        
+                        </li>
+                <li>                       
+                    <NavLink 
+                    exact to="/login" 
+                    activeStyle={{fontSize: "1.2em", fontWeight: 700}}
+                    onClick={this.hideNav}
+                    className="logging-link"
+                    >Log In</NavLink>
+                    </li>
             </>
         );
     };
