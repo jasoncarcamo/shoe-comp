@@ -113,7 +113,7 @@ export default class Header extends React.Component{
         const ul = document.getElementById("nav-links");
 
         if(this.state.screenWidth <= 770){
-            ul.classList.to("showUl");
+            ul.classList.toggle("showUl");
         };
     }
 

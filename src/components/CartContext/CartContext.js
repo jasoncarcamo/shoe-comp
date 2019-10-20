@@ -26,6 +26,7 @@ export class CartProvider extends React.Component{
     }
 
     componentDidMount(){
+        
         if(TokenService.hasAuthToken()){
             CartServices.getCart()
             .then( data => {
